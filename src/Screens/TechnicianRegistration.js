@@ -39,7 +39,7 @@ const TechnicianRegistration = () => {
         <Box  flexWrap={"wrap"} bg={"white"} >
         
             <Box w="full" h="full" top="10" px="6" justifyContent="center"  >
-            <Heading mt={10} textAlign="center">Please tell us about your business</Heading>
+            <Heading   textAlign="center">Please tell us about your business</Heading>
                 {/* <Heading style={{  alignItems: 'center',textAlign:'center' }}>Login</Heading> */}
                 <VStack space={5} pt="5">
                       <Text style={{fontWeight:"bold"}}>SERVICER NAME</Text>
@@ -56,7 +56,7 @@ const TechnicianRegistration = () => {
                       <Input type='text' variant="outline" w="100%" pl={2} name='betterBusinessBureauReviewPage' value={formData.betterBusinessBureauReviewPage}  placeholder="Yelp or Better Business Bureau Review Page (Optional)" onChangeText={(text)=>handleChange("betterBusinessBureauReviewPage",text)}/>
                       <View pb={10}>
                         {/* <Button  mt={5} w="100%" rounded="50" bg="black" >Login</Button> */}
-                      <Button my={10} w="100%" rounded="50" onPress={registration}>SIGN UP</Button>
+                      <Button my={10} w="100%" rounded="10" bg="black" onPress={registration}>SIGN UP</Button>
                       </View>
                      
                 </VStack>
