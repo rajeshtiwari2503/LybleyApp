@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box } from 'native-base'
+import { Box,Text } from 'native-base'
 import { LoginScreen } from './LoginScreen'
 import { TechnicianRegistration } from './TechnicianRegistration'
 import { OtpVerification } from './OtpScreen'
