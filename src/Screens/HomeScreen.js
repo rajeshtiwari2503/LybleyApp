@@ -2,13 +2,16 @@ import React from 'react'
 import { Box } from 'native-base'
 import { LoginScreen } from './LoginScreen'
 import { TechnicianRegistration } from './TechnicianRegistration'
+import { OtpVerification } from './OtpScreen'
+ 
 
 
 export const HomeScreen=()=> {
     return (
         <Box flex={1} bg={"amber.100"}>
             {/* <LoginScreen /> */}
-            <TechnicianRegistration/>
+            <OtpVerification />
+            {/* <TechnicianRegistration/> */}
         </Box>
     )
 }
