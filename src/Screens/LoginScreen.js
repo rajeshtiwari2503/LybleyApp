@@ -5,7 +5,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import {  StyleSheet, TextInput } from 'react-native';
 
-export const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
     const url = "https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI"
 
     const [numberInput, setNumberInput] = useState('');
@@ -28,7 +28,7 @@ export const LoginScreen = () => {
         }
     };
     return (
-        <Box flex={1} bg={"amber.100"} >
+        <Box flex={1} bg={"white"} >
            
             <Box w="full" h="full"    px="6" justifyContent="center"  >
              
@@ -43,7 +43,7 @@ export const LoginScreen = () => {
                       <Text>{validationResult}</Text>
                     
                     <View ><Button   w="100%" rounded="50" bg="black" onPress={handleValidation} >Login</Button>
-                        <Button my={10} w="100%" rounded="50" bg="black">SIGN UP</Button>
+                        <Button my={10} w="100%" rounded="50" bg="black" onPress={()=>navigation.navigate("Signup")}>SIGN UP</Button>
                     </View>
 
                 </VStack>
@@ -51,6 +51,7 @@ export const LoginScreen = () => {
         </Box>
     )
 }
+export default LoginScreen;
 const styles = StyleSheet.create({
     container: {
       flex: 1,
