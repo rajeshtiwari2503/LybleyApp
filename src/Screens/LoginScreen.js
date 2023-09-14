@@ -1,8 +1,6 @@
 
 import React, { useState } from 'react'
 import { Image, Heading, Box, VStack,Text, Input, Button, View } from 'native-base'
-import { MaterialIcons } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
 import {  StyleSheet, TextInput } from 'react-native';
 
 export const LoginScreen = () => {
@@ -31,9 +29,7 @@ export const LoginScreen = () => {
         <Box flex={1} bg={"amber.100"} >
            
             <Box w="full" h="full"    px="6" justifyContent="center"  >
-             
-           
-               
+              
                 <VStack space={2}  >
                 <Image  mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image"     />
                 <Heading mt={10} style={{   fontWeight:"bold",textAlign: 'center' }}>LOGIN</Heading>
