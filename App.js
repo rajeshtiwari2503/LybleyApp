@@ -15,12 +15,11 @@ export default function App() {
   return (
     <NativeBaseProvider>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="HomeScreen">
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false,}}/>
         <Stack.Screen name="Signup" component={TechnicianRegistration} options={{headerShown: false,}}/>
         <Stack.Screen name="OtpVerification" component={OtpVerification} options={{headerShown: false,}}/>
         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown: false,}}/>
- 
       </Stack.Navigator>
     </NavigationContainer>
     </NativeBaseProvider>
