@@ -20,7 +20,7 @@ export const HomeScreen = () => {
                     <Flex mt={5} direction='row' flexWrap={"wrap"} alignItems="center" justifyContent="center">
                     {[1,2,3,4,5,6,7,8,9].map(m1=>
                     
-                    <Flex p={2} mt={5} alignItems="center" justifyContent="center">
+                    <Flex p={2} mt={5} alignItems="center" w={`${100 / 2}%`} justifyContent="center">
                     <View style={styles.divSIze}>
                     <Text fontWeight={"bold"} >Customer</Text>
                     <Text fontWeight={"bold"}>{m1}</Text>
