@@ -32,12 +32,12 @@ export const OtpVerification = () => {
     return (
         <Box bg={"amber.100"} >
 
-            <Box w="full" px="6" justifyContent="center"  >
-                <VStack top={100} space={2}  >
-                    <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" />
-                    <Heading mt={10} style={{ fontWeight: "bold", textAlign: 'center' }}>Otp Verification</Heading>
-                    <View px={6}>
-                        <OTPTextInput  handleTextChange={handleOTPChange} inputCount={4} />
+            <Box w="full" h={"full"} px="6" justifyContent="center"  >
+                <VStack  space={2}  >
+                    <Image   style={styles.roundedImage} source={{ uri: url }} alt="image" />
+                    <Heading mt={20} style={{ fontWeight: "bold", textAlign: 'center' }}>Otp Verification</Heading>
+                    <View mt={10} >
+                        <OTPTextInput containerStyle={styles.otpContainer}  textInputStyle={styles.otpTextInput}  handleTextChange={handleOTPChange} inputCount={6} />
                         <Button bg={"black"} mt={10} title="clear" onPress={()=>handleVerify()}><Text style={{ fontWeight: "bold", color: "white" }}>Verify</Text></Button>
                     </View>
                 </VStack>
@@ -58,4 +58,18 @@ const styles = StyleSheet.create({
         height: 70,
         borderRadius: 10, // Half of the width or height to create a circular border
     },
+    otpContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+      otpTextInput: {
+        borderWidth: 1,
+        borderColor: 'gray',
+        borderRadius: 10,
+        padding: 0,
+        fontSize: 15,
+        letterSpacing: 10, 
+         
+      },
 });
