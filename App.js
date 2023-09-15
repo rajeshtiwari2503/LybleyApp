@@ -16,10 +16,10 @@ export default function App() {
     <NativeBaseProvider>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen name="Login" component={LoginScreen}/>
-        <Stack.Screen name="Signup" component={TechnicianRegistration}/>
-        <Stack.Screen name="OtpVerification" component={OtpVerification}/>
-        <Stack.Screen name="HomeScreen" component={HomeScreen}/>
+        <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false,}}/>
+        <Stack.Screen name="Signup" component={TechnicianRegistration} options={{headerShown: false,}}/>
+        <Stack.Screen name="OtpVerification" component={OtpVerification} options={{headerShown: false,}}/>
+        <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown: false,}}/>
       </Stack.Navigator>
     </NavigationContainer>
     </NativeBaseProvider>
