@@ -37,8 +37,8 @@ export const OtpVerification = () => {
                     <Image   style={styles.roundedImage} source={{ uri: url }} alt="image" />
                     <Heading mt={20} style={{ fontWeight: "bold", textAlign: 'center' }}>Otp Verification</Heading>
                     <View mt={10} >
-                        <OTPTextInput containerStyle={styles.otpContainer}  textInputStyle={styles.otpTextInput}  handleTextChange={handleOTPChange} inputCount={6} />
-                        <Button bg={"black"} mt={10} title="clear" onPress={()=>handleVerify()}><Text style={{ fontWeight: "bold", color: "white" }}>Verify</Text></Button>
+                        <OTPTextInput containerStyle={styles.otpContainer}  textInputStyle={styles.otpTextInput}  handleTextChange={handleOTPChange} inputCount={5} />
+                        <Button bg={"black"} mt={10}   onPress={()=>handleVerify()}><Text style={{ fontWeight: "bold", color: "white" }}>Verify</Text></Button>
                     </View>
                 </VStack>
             </Box>
