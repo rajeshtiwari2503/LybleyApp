@@ -19,7 +19,7 @@ export default function App() {
   return (
     <NativeBaseProvider>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Plans">
+      <Stack.Navigator initialRouteName="HomeScreen">
         <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false,}}/>
         <Stack.Screen name="Signup" component={TechnicianRegistration} options={{headerShown: false,}}/>
         <Stack.Screen name="OtpVerification" component={OtpVerification} options={{headerShown: false,}}/>
