@@ -20,7 +20,7 @@ const Plan = () => {
        console.log(err);
       }
     }
-console.log(plan);
+
   return (
     <View>
         <Text>Plan</Text>
