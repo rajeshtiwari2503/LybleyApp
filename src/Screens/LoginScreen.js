@@ -3,8 +3,11 @@ import React, { useState } from 'react'
 import { Image, Heading, Box, VStack, Text, Input, Button, View } from 'native-base'
 import { StyleSheet, TextInput } from 'react-native';
 import httpCommon from '../../http-common';
+import { useNavigation } from '@react-navigation/native';
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = () => {
+    const navigation=useNavigation();
+
     const url = "https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI"
 
     const [numberInput, setNumberInput] = useState('');

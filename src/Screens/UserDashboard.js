@@ -3,7 +3,8 @@ import { Box, Text, VStack, Image, ScrollView, View, Heading, Grid, Flex } from 
 import { StyleSheet, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 
-export const UserDashboard = () => {
+export const UserDashboard = (props) => {
+console.log(props);
     const url = "https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI"
 
     const navigation=useNavigation();
@@ -24,16 +25,16 @@ export const UserDashboard = () => {
                         <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" />
                         <View mt={5}><Heading textAlign={"center"}> Dasboard</Heading></View>
                         <View mt={5}>
-                                <Heading >  Name : {"Rajesh"}</Heading>
+                                <Heading >  Name : {props?.loginData?.name}</Heading>
                             </View>
                             <View >
-                                <Heading >  Email : {"rajesh@gmail.com"}</Heading>
+                                <Heading >  Email : {props?.loginData?.email}</Heading>
                             </View>
                             <View >
-                                <Heading >  Contact : {"9565892772"}</Heading>
+                                <Heading >  Contact : {props?.loginData?.contact}</Heading>
                             </View>
                             <View >
-                                <Heading >  Joining Date : {"10/10/23"}</Heading>
+                                <Heading >  Joining Date : {new Date (props?.loginData?.createdAt).toLocaleDateString()}</Heading>
                             </View>
                         <Flex mt={5} direction='row' flexWrap={"wrap"} alignItems="center" justifyContent="center">
                             <Flex p={2} mt={5} alignItems="center" w={`${100 / 2}%`} justifyContent="center">
