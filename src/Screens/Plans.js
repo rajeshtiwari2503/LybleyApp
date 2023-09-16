@@ -1,4 +1,4 @@
-import { View, Text, Box, Flex, Image, Heading } from 'native-base'
+import { View, Text, Box, Flex, Image, Heading} from 'native-base'
 import React, { useEffect, useState } from 'react'
 import httpCommon from '../../http-common';
 import { StyleSheet, TouchableOpacity } from 'react-native'
@@ -32,7 +32,7 @@ const Plans = () => {
   const url = "https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI"
 
   return (
-    <View>
+    <View px="6" >
       <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" />
       <View mt={5}><Heading textAlign={"center"}> Dasboard</Heading></View>
       <Flex mt={5} direction='row' flexWrap={"wrap"} alignItems="center" justifyContent="center">

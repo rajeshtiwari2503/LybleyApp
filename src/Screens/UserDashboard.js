@@ -23,15 +23,29 @@ export const UserDashboard = () => {
                     <VStack space={2}  >
                         <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" />
                         <View mt={5}><Heading textAlign={"center"}> Dasboard</Heading></View>
+                        <View mt={5}>
+                                <Heading >  Name : {"Rajesh"}</Heading>
+                            </View>
+                            <View >
+                                <Heading >  Email : {"rajesh@gmail.com"}</Heading>
+                            </View>
+                            <View >
+                                <Heading >  Contact : {"9565892772"}</Heading>
+                            </View>
+                            <View >
+                                <Heading >  Joining Date : {"10/10/23"}</Heading>
+                            </View>
                         <Flex mt={5} direction='row' flexWrap={"wrap"} alignItems="center" justifyContent="center">
-
                             <Flex p={2} mt={5} alignItems="center" w={`${100 / 2}%`} justifyContent="center">
-                                <Box  style={styles.divSIze}>
-                                <TouchableOpacity onPress={() => handleLink("CreateComplaints")}>
+                                <Box   style={styles.divSIze}>
+                                <TouchableOpacity  onPress={() => handleLink("CreateComplaints")}>
+                                    <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"}></Text>
                                     <Text  fontWeight={"bold"} >Create Complaints</Text>
                                     <Text fontWeight={"bold"}>1</Text>
                                     <Text fontWeight={"bold"}></Text>
+                                    <Text fontWeight={"bold"}></Text>
+
                                     </TouchableOpacity>
                                 </Box>
                             </Flex>
@@ -40,8 +54,10 @@ export const UserDashboard = () => {
                                 <Box   style={styles.divSIze}>
                                 <TouchableOpacity onPress={() => handleLink("Plans")}>
                                     <Text fontWeight={"bold"}></Text>
+                                    <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"} >Plan</Text>
                                     <Text fontWeight={"bold"}>1</Text>
+                                    <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"}></Text>
                                     </TouchableOpacity>
                                 </Box>
@@ -50,8 +66,10 @@ export const UserDashboard = () => {
                                 <Box   style={styles.divSIze}>
                                 <TouchableOpacity onPress={() => handleLink("SubscribePlan")}>
                                     <Text fontWeight={"bold"}></Text>
+                                    <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"} >Subscribe Plan</Text>
                                     <Text fontWeight={"bold"}>1</Text>
+                                    <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"}></Text>
                                     </TouchableOpacity>
                                 </Box>
@@ -60,8 +78,10 @@ export const UserDashboard = () => {
                                 <Box style={styles.divSIze}>
                                 <TouchableOpacity onPress={() => handleLink("Complaints")}>
                                     <Text fontWeight={"bold"}></Text>
+                                    <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"} >Complaints</Text>
                                     <Text fontWeight={"bold"}>1</Text>
+                                    <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"}></Text>
                                     </TouchableOpacity>
                                 </Box>
@@ -82,7 +102,7 @@ const styles = StyleSheet.create({
         borderRadius: 10, // Half of the width or height to create a circular border
     },
     divSIze: {
-        backgroundColor: "white",
+        backgroundColor: "#b6e6fa",
         height: "100px",
         width: " 100%",
         borderRadius: 5,
