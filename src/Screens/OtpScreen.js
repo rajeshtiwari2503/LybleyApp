@@ -21,6 +21,8 @@ export const OtpVerification = () => {
             let response = await httpCommon.post("/otpPhoneVerification", { otp:otp })
             let { data } = response;
             if (data?.status === true) {
+                let str=JSON.stringify(data?.user);
+                localStorage.setItem("logData",str);
                 navigation.navigate("HomeScreen")
             }
         }
