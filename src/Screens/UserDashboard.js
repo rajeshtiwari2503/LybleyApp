@@ -9,10 +9,10 @@ export const UserDashboard = () => {
     const navigation=useNavigation();
 
     const handleLink = (data) => {
-         data==="CreateComplaints"?     navigation.navigate("Login")
+         data==="CreateComplaints"?     navigation.navigate("CreateComplaints")
          :data==="Plans"?    navigation.navigate("Plans")
-         :data==="SubscribePlan"?    navigation.navigate("SubscribePlan")
-         :data==="Complaints"?    navigation.navigate("Complaints")
+         :data==="SubscribePlan"?    navigation.navigate("Subscription")
+         :data==="Complaints"?    navigation.navigate("Complaint")
          :console.log("No Router")
     }
 
