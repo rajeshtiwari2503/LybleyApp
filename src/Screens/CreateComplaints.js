@@ -15,8 +15,14 @@ const CreateComplaints = () => {
     description:"",
     image:"https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI"
   })
+// import { DocumentPicker } from 'react-native-document-picker';
+
+
+const CreateComplaints = () => {
+ 
+
   const url = "https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI"
-  const [selectedImage, setSelectedImage] = useState("");
+
 
   // const openImagePicker = () => {
   //   const options = {
@@ -62,6 +68,20 @@ const CreateComplaints = () => {
       // navigation.navigate("Login");
     } catch (err) {
       console.log(err);
+
+  const selectedImage = async () => {
+    try {
+      const image = await DocumentPicker.pick({
+        type: [DocumentPicker.types.images],
+      });
+      console.log(image);
+    }
+    catch (err) {
+      if (DocumentPicker.isCancel(e))
+        console.log("dsg",e);
+      else
+        console.log(err);
+
     }
   }
 
@@ -99,6 +119,12 @@ const CreateComplaints = () => {
                   <View pb={10}>
                     {/* <Button  mt={5} w="100%" rounded="50" bg="black" >Login</Button> */}
                     <Button my={10} w="100%" title="Create Complaint" rounded="10" bg="black" onPress={complaint} />
+//                   <Input variant="outline" w="100%" pl={2} name='servicerName' placeholder='Part Image' />
+                  {/* <Button my={10} w="100%" title="Uploade Image" rounded="10" onPress={selectedImage} /> */}
+
+                  <View pb={10}>
+
+//                     <Button my={10} w="100%" title="Create Complaint" rounded="10" bg="black" />
                   </View>
 
                 </VStack>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box,Button, Text, VStack, Image, ScrollView, View, Heading, Grid, Flex } from 'native-base'
 import { StyleSheet, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
@@ -6,26 +6,48 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export const UserDashboard = (props) => {
-console.log(props);
+// console.log(props);
     const url = "https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI"
 
     const navigation=useNavigation();
 
-    const handleLink = (data) => {
-         data==="CreateComplaints"?     navigation.navigate("CreateComplaints")
-         :data==="Plans"?    navigation.navigate("Plans")
-         :data==="SubscribePlan"?    navigation.navigate("Subscription")
-         :data==="Complaints"?    navigation.navigate("Complaint")
-         :console.log("No Router")
-    }
-    const handleLogout = async () => {
-        try {
-          await AsyncStorage.removeItem("logData");
-          navigation.navigate("HomeScreen")
-        } catch (error) {
-          console.error('Error removing data:', error);
-        }
-      };
+      const [data,setData]=useState({});
+   
+      const getItemSync = async (key) => {
+          try {
+            const value = await AsyncStorage.getItem(key);
+            const loginData= JSON.parse(value);
+            setData(loginData);
+            return loginData;
+          } catch (error) {
+            console.error('Error retrieving data:', error);
+            return null;
+          }
+        };
+        
+        useEffect(()=>{
+          const dataPromise=getItemSync("logData"); 
+          dataPromise.then((data) => {
+              if (data !== null) {
+                const user = data;              
+            }});
+        },[]);
+        const id=data?._id
+        const handleLink = (data) => {
+            data==="CreateComplaints"?     navigation.navigate("CreateComplaints")
+            :data==="Plans"?    navigation.navigate("Plans")
+            :data==="SubscribePlan"?    navigation.navigate("Subscription")
+            :data==="Complaints"?    navigation.navigate("Complaint",{id})
+            :console.log("No Router")
+       }
+       const handleLogout = async () => {
+           try {
+             await AsyncStorage.removeItem("logData");
+             navigation.navigate("HomeScreen")
+           } catch (error) {
+             console.error('Error removing data:', error);
+           }
+         };
     return (
         <ScrollView flex={1} bg={"amber.100"}>
             <Box flexWrap={"wrap"} >
@@ -36,16 +58,16 @@ console.log(props);
                         
                     </View></View>
                         <View mt={5}>
-                                <Heading >  Name : {props?.loginData?.name}</Heading>
+                                <Heading >  Name : {data?.name}</Heading>
                             </View>
                             <View >
-                                <Heading >  Email : {props?.loginData?.email}</Heading>
+                                <Heading >  Email : {data?.email}</Heading>
                             </View>
                             <View >
-                                <Heading >  Contact : {props?.loginData?.contact}</Heading>
+                                <Heading >  Contact : {data?.contact}</Heading>
                             </View>
                             <View >
-                                <Heading >  Joining Date : {new Date (props?.loginData?.createdAt).toLocaleDateString()}</Heading>
+                                <Heading >  Joining Date : {new Date (data?.createdAt).toLocaleDateString()}</Heading>
                             </View>
                         <Flex mt={5} direction='row' flexWrap={"wrap"} alignItems="center" justifyContent="center">
                             <Flex p={2} mt={5} alignItems="center" w={`${100 / 2}%`} justifyContent="center">
