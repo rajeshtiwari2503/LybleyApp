@@ -7,6 +7,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native'
 
 export const HomeScreen = () => {
+ 
     const [data,setData]=useState({});
     const navigation=useNavigation();
     const getItemSync = async (key) => {
@@ -41,7 +42,8 @@ export const HomeScreen = () => {
         <View>
          {(data?.role ) ? " " : <LoginScreen />}   
         {/* "<LoginScreen />" */}
+
         </View>
     )
 }
- 
+
