@@ -14,14 +14,18 @@ import Plan from "./src/Screens/Plan";
 import CreateComplaints from "./src/Screens/CreateComplaints";
 import { UserDashboard } from "./src/Screens/UserDashboard";
 import { TechnicianDashboard } from "./src/Screens/TechnicianDashboard";
+import { AppRegistry } from 'react-native';
+import { name as appName } from './app.json';
+ 
+
 const Stack=createStackNavigator();
  
 export default function App() {
-  
+   
   return (
     <NativeBaseProvider>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="CreateComplaint">
+      <Stack.Navigator initialRouteName="User">
         <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false,}}/>
         <Stack.Screen name="Signup" component={TechnicianRegistration} options={{headerShown: false,}}/>
         <Stack.Screen name="OtpVerification" component={OtpVerification} options={{headerShown: false,}}/>

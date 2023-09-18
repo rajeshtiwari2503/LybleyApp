@@ -2,29 +2,27 @@
 import React, { useState } from 'react'
 import { Box, Text, VStack, Image, ScrollView, View, Heading, Input } from 'native-base'
 import { Button, StyleSheet } from 'react-native';
-import { launchImageLibrary } from 'react-native-image-picker';
+// import { DocumentPicker } from 'react-native-document-picker';
+
 
 const CreateComplaints = () => {
-
+ 
   const url = "https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI"
-  const [selectedImage, setSelectedImage] = useState("");
 
-  const openImagePicker = () => {
-    const options = {
-      mediaType: 'photo', // specify media type (photo or video)
-    };
 
-    launchImageLibrary(options, (response) => {
-      if (response.didCancel) {
-        console.log('User cancelled image picker');
-      } else if (response.error) {
-        console.log('ImagePicker Error: ', response.error);
-      } else {
-        const source = { uri: response.uri };
-        setSelectedImage(source);
-      }
-    });
-
+  const selectedImage = async () => {
+    try {
+      const image = await DocumentPicker.pick({
+        type: [DocumentPicker.types.images],
+      });
+      console.log(image);
+    }
+    catch (err) {
+      if (DocumentPicker.isCancel(e))
+        console.log("dsg",e);
+      else
+        console.log(err);
+    }
   }
 
   return (
@@ -49,10 +47,10 @@ const CreateComplaints = () => {
                   <Input variant="outline" w="100%" pl={2} name='servicerName' placeholder='Part Name' />
                   <Text style={{ fontWeight: "bold" }}>PART IMAGE</Text>
                   <Input variant="outline" w="100%" pl={2} name='servicerName' placeholder='Part Image' />
+                  {/* <Button my={10} w="100%" title="Uploade Image" rounded="10" onPress={selectedImage} /> */}
 
-                  
                   <View pb={10}>
-                    {/* <Button  mt={5} w="100%" rounded="50" bg="black" >Login</Button> */}
+
                     <Button my={10} w="100%" title="Create Complaint" rounded="10" bg="black" />
                   </View>
 
