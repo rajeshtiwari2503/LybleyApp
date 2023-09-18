@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native';
 import OTPTextInput from 'react-native-otp-textinput';
 import httpCommon from '../../http-common';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const OtpVerification = () => {
     const url = "https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI"
@@ -22,8 +23,12 @@ export const OtpVerification = () => {
             let { data } = response;
             if (data?.status === true) {
                 let str=JSON.stringify(data?.user);
-                localStorage.setItem("logData",str);
-                navigation.navigate("HomeScreen")
+                await AsyncStorage.setItem("logData",str);
+                if(data?.role==="USER"){
+                navigation.navigate("User")
+                }else{
+                navigation.navigate("Technician");
+                }
             }
         }
         catch (err) {
@@ -36,7 +41,7 @@ export const OtpVerification = () => {
 
             <Box w="full" h={"full"} px="6" justifyContent="center"  >
                 <VStack  space={2}  >
-                    <Image   style={styles.roundedImage} source={{ uri: url }} alt="image" />
+                <View style={styles.container}> <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" /></View>
                     <Heading mt={20} style={{ fontWeight: "bold", textAlign: 'center' }}>Otp Verification</Heading>
                     <View mt={10} >
                         <OTPTextInput containerStyle={styles.otpContainer}  textInputStyle={styles.otpTextInput}  handleTextChange={handleOTPChange} inputCount={5} />
@@ -56,9 +61,9 @@ const styles = StyleSheet.create({
     },
     roundedImage: {
         // Adjust the width and height as needed
-        width: "100%",
-        height: 70,
-        borderRadius: 10, // Half of the width or height to create a circular border
+        width: "90px",
+        height: "80px",
+        borderRadius: 5, // Half of the width or height to create a circular border
     },
     otpContainer: {
         flexDirection: 'row',

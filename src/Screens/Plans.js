@@ -33,7 +33,7 @@ const Plans = () => {
 
   return (
     <View px="6" >
-      <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" />
+       <View style={styles.container}> <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" /></View>
       <View mt={5}><Heading textAlign={"center"}> Dasboard</Heading></View>
       <Flex mt={5} direction='row' flexWrap={"wrap"} alignItems="center" justifyContent="center">
         {plans?.map((m1, i) =>
@@ -58,12 +58,17 @@ const Plans = () => {
 export default Plans;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+},
   roundedImage: {
     // Adjust the width and height as needed
-    width: "100%",
-    height: 70,
-    borderRadius: 10, // Half of the width or height to create a circular border
-  },
+    width: "90px",
+    height: "80px",
+    borderRadius: 5, // Half of the width or height to create a circular border
+},
   divSIze: {
     backgroundColor: "white",
     height: "100px",

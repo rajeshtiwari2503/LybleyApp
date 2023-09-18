@@ -33,7 +33,7 @@ const Subscription = () => {
       <Box flexWrap={"wrap"} >
         <Box w="full" h="full" px="6" justifyContent="center"  >
           <VStack space={2}  >
-            <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" />
+          <View style={styles.container}> <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" /></View>
            {plan?.map((item,i)=>
            <View key={i}>
             <View mt={5}>
@@ -96,12 +96,17 @@ const Subscription = () => {
 export default Subscription;
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+},
   roundedImage: {
     // Adjust the width and height as needed
-    width: "100%",
-    height: 70,
-    borderRadius: 10, // Half of the width or height to create a circular border
-  },
+    width: "90px",
+    height: "80px",
+    borderRadius: 5, // Half of the width or height to create a circular border
+},
   planShow: {
     display: "flex"
   }

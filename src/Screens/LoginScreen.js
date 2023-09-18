@@ -45,7 +45,7 @@ const LoginScreen = () => {
             <Box w="full" h="full" px="6" justifyContent="center"  >
 
                 <VStack space={2}  >
-                    <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" />
+                   <View style={styles.container}> <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" /></View>
                     <Heading mt={10} style={{ fontWeight: "bold", textAlign: 'center' }}>LOGIN</Heading>
                     <Input mt={10} variant="outline" w="100%" pl={2} value={numberInput}
                         onChangeText={handleInputChange} placeholder='Enter Mobile No.' />
@@ -70,8 +70,8 @@ const styles = StyleSheet.create({
     },
     roundedImage: {
         // Adjust the width and height as needed
-        width: "100%",
-        height: 70,
-        borderRadius: 10, // Half of the width or height to create a circular border
+        width: "90px",
+        height: "80px",
+        borderRadius: 5, // Half of the width or height to create a circular border
     },
 });
