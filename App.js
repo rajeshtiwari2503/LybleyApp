@@ -12,6 +12,7 @@ import Subscription from "./src/Screens/Subscription";
 import Complaint from "./src/Screens/Complaint";
 import Plan from "./src/Screens/Plan";
 import CreateComplaints from "./src/Screens/CreateComplaints";
+ 
 
 const Stack=createStackNavigator();
  
@@ -20,14 +21,14 @@ export default function App() {
   return (
     <NativeBaseProvider>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="HomeScreen">
+      <Stack.Navigator initialRouteName="CreateComplaint">
         <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false,}}/>
         <Stack.Screen name="Signup" component={TechnicianRegistration} options={{headerShown: false,}}/>
         <Stack.Screen name="OtpVerification" component={OtpVerification} options={{headerShown: false,}}/>
         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown: false,}}/>
         <Stack.Screen name="Plans" component={Plans} options={{headerShown: false,}}/>
         <Stack.Screen name="Subscription" component={Subscription} options={{headerShown: false,}}/>
-        <Stack.Screen name="CreateComplaints" component={CreateComplaints} options={{headerShown: false,}}/>
+        <Stack.Screen name="CreateComplaint" component={CreateComplaints} options={{headerShown: false,}}/>
         <Stack.Screen name="Complaint" component={Complaint} options={{headerShown: false,}}/>
         <Stack.Screen name="Plan" component={Plan} options={{headerShown: false,}}/>
       </Stack.Navigator>
