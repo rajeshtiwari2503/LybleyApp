@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Box,Button, Text, VStack, Image, ScrollView, View, Heading, Grid, Flex } from 'native-base'
+import { Box,Button, Text, VStack, Image, ScrollView, View, Heading,   Flex } from 'native-base'
 import { StyleSheet, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Ionicons } from '@expo/vector-icons'; 
 
-
-export const UserDashboard = (props) => {
+export const UserDashboard = ( ) => {
 // console.log(props);
     const url = "https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI"
 
@@ -75,8 +75,11 @@ export const UserDashboard = (props) => {
                                 <TouchableOpacity  onPress={() => handleLink("CreateComplaints")}>
                                     <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"}></Text>
+                                    <View   style={{flex:1,flexDirection:"row",justifyContent:"center",alignItems:"center"}}>
+                                    <Ionicons  name="add" size={50} style={{fontWeight:"bold"}} color="black" />
                                     <Text  fontWeight={"bold"} >Create Complaints</Text>
-                                    <Text fontWeight={"bold"}>1</Text>
+                                    </View>
+                                    <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"}></Text>
 
@@ -90,7 +93,7 @@ export const UserDashboard = (props) => {
                                     <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"} >Plan</Text>
-                                    <Text fontWeight={"bold"}>1</Text>
+                                    <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"}></Text>
                                     </TouchableOpacity>
@@ -102,7 +105,7 @@ export const UserDashboard = (props) => {
                                     <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"} >Subscribe Plan</Text>
-                                    <Text fontWeight={"bold"}>1</Text>
+                                    <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"}></Text>
                                     </TouchableOpacity>
@@ -114,9 +117,9 @@ export const UserDashboard = (props) => {
                                     <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"} >Complaints</Text>
-                                    <Text fontWeight={"bold"}>1</Text>
                                     <Text fontWeight={"bold"}></Text>
                                     <Text fontWeight={"bold"}></Text>
+                                    <Text fontWeight={"bold"}>&nbsp;</Text>
                                     </TouchableOpacity>
                                 </Box>
                             </Flex>
@@ -141,7 +144,8 @@ const styles = StyleSheet.create({
         borderRadius: 5, // Half of the width or height to create a circular border
     },
     divSIze: {
-        backgroundColor: "#b6e6fa",
+        backgroundColor: "#b6e6fa", 
+        // backgroundColor: "#f5881f",
         height: "100px",
         width: " 100%",
         borderRadius: 5,

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { UserDashboard } from './UserDashboard'
 import { View } from 'native-base'
-import { TechnicianDashboard } from './TechnicianDashboard'
 import LoginScreen from './LoginScreen'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native'
