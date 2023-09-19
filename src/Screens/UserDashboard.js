@@ -54,7 +54,7 @@ export const UserDashboard = ( ) => {
                 <Box w="full" h="full" px="6" justifyContent="center"  >
                     <VStack space={2}  >
                     <View style={styles.container}> <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" /></View>
-                        <View mt={5} style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}><View> <Heading textAlign={"center"}> Dasboard</Heading></View><View ><Button w="100%" rounded="10" bg="black" onPress={handleLogout} >Logout</Button>
+                        <View mt={5} style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}><View> <Heading textAlign={"center"}> Dasboard</Heading></View><View ><Button w="100%" rounded="10" bg="black" onPress={handleLogout} ><Text>Logout</Text></Button>
                         
                     </View></View>
                         <View mt={5}>
