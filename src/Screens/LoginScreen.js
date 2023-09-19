@@ -1,14 +1,12 @@
 
 import React, { useState } from 'react'
-import { Image, Heading, Box, VStack, Text, Input, Button, View } from 'native-base'
-import { StyleSheet, TextInput } from 'react-native';
+import {   Heading, Box, VStack, Text, Input, Button, View } from 'native-base'
 import httpCommon from '../../http-common';
 import { useNavigation } from '@react-navigation/native';
+import Logo from './Logo';
 
 const LoginScreen = () => {
     const navigation=useNavigation();
-
-    const url = "https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI"
 
     const [numberInput, setNumberInput] = useState('');
     const [validationResult, setValidationResult] = useState('');
@@ -45,15 +43,15 @@ const LoginScreen = () => {
             <Box w="full" h="full" px="6" justifyContent="center"  >
 
                 <VStack space={2}  >
-                   <View style={styles.container}> <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" /></View>
-                    <Heading mt={10} style={{ fontWeight: "bold", textAlign: 'center' }}> LOGIN</Heading>
+                    <Logo  />
+                    <Heading mt={20} style={{ fontWeight: "bold", textAlign: 'center' }}> {"LOGIN"}</Heading>
                     <Input mt={10} variant="outline" w="100%" pl={2} value={numberInput}
                         onChangeText={handleInputChange} placeholder='Enter Mobile No.' />
-                    {/* <Input type='password' InputLeftElement={<Ionicons name="eye" size={20} color="black" />} variant="outline" w="100%" pl={2}   placeholder='************' /> */}
                     <Text>{validationResult}</Text>
 
-                    <View ><Button w="100%" rounded="10" bg="black" onPress={handleValidation} ><Text> Login</Text></Button>
-                        <Button my={10} w="100%" rounded="10" bg="black" onPress={() => navigation.navigate("Signup")}><Text>SIGN UP</Text></Button>
+                    <View >
+                        <Button w="100%" rounded="10" bg="black" onPress={handleValidation} > Login </Button>
+                        <Button my={10} w="100%" rounded="10" bg="black" onPress={() => navigation.navigate("Signup")}>  SIGN UP </Button>
                     </View>
 
                 </VStack>
@@ -62,16 +60,3 @@ const LoginScreen = () => {
     )
 }
 export default LoginScreen;
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    roundedImage: {
-        // Adjust the width and height as needed
-        width: "90px",
-        height: "80px",
-        borderRadius: 5, // Half of the width or height to create a circular border
-    },
-});

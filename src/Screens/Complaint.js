@@ -1,8 +1,9 @@
-import { Box, Text, VStack, Image, ScrollView, View, Heading,  Flex  } from 'native-base'
 import React, { useEffect, useState } from 'react'
+import { Box, Text, VStack, Image, ScrollView, View, Heading,  Flex  } from 'native-base'
 import httpCommon from '../../http-common';
 import { useRoute } from '@react-navigation/native';
-import { StyleSheet } from 'react-native';
+ 
+import Logo from './Logo';
 
 const Complaint = () => {
   const [complaint, setComplaint] = useState([]);
@@ -31,7 +32,7 @@ const Complaint = () => {
       <Box flexWrap={"wrap"} >
         <Box w="full" h="full" px="6" justifyContent="center"  >
           <VStack space={2}  >
-          <View style={styles.container}> <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" /></View>
+            <Logo />
             <View mt={5}>
               <Heading textAlign={"center"}>  Complaints </Heading>
             </View>
@@ -59,16 +60,4 @@ const Complaint = () => {
 
 export default Complaint;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-},
-  roundedImage: {
-    // Adjust the width and height as needed
-    width: "90px",
-    height: "80px",
-    borderRadius: 5, // Half of the width or height to create a circular border
-} 
-});
+ 
