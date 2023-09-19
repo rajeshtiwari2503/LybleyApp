@@ -1,8 +1,9 @@
-import { View, Text, Box, Flex, Image, Heading} from 'native-base'
 import React, { useEffect, useState } from 'react'
+import { View, Text, Box, Flex, Image, Heading, ScrollView} from 'native-base'
 import httpCommon from '../../http-common';
 import { StyleSheet, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
+import Logo from './Logo';
 
 const Plans = () => {
   const [plans, setPlans] = useState([]);
@@ -29,12 +30,12 @@ const Plans = () => {
   const handleNavigate = (id) => {
     navigation.navigate("Plan", { id });
   }
-  const url = "https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI"
 
   return (
-    <View px="6" >
-       <View style={styles.container}> <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" /></View>
-      <View mt={5}><Heading textAlign={"center"}> Dasboard</Heading></View>
+    <ScrollView>
+    <View  px="6" >
+      <Logo />
+      <View mt={5}><Heading textAlign={"center"}> Plans</Heading></View>
       <Flex mt={5} direction='row' flexWrap={"wrap"} alignItems="center" justifyContent="center">
         {plans?.map((m1, i) =>
 
@@ -52,23 +53,14 @@ const Plans = () => {
         )}
       </Flex>
     </View>
+    </ScrollView>
   )
 }
 
 export default Plans;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-},
-  roundedImage: {
-    // Adjust the width and height as needed
-    width: "90px",
-    height: "80px",
-    borderRadius: 5, // Half of the width or height to create a circular border
-},
+  
   divSIze: {
     backgroundColor: "white",
     height: "100px",

@@ -1,10 +1,11 @@
+import React, { useState } from 'react';
 import { Box, Button, Heading, Image, Text, VStack, View } from 'native-base';
-import React, { useRef, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import OTPTextInput from 'react-native-otp-textinput';
 import httpCommon from '../../http-common';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Logo from './Logo';
 
 export const OtpVerification = () => {
     const url = "https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI"
@@ -47,11 +48,11 @@ export const OtpVerification = () => {
 
             <Box w="full" h={"full"} px="6" justifyContent="center"  >
                 <VStack space={2}  >
-                    <View style={styles.container}> <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" /></View>
-                    <Heading mt={20} style={{ fontWeight: "bold", textAlign: 'center' }}>Otp Verification</Heading>
+                    <Logo />
+                    <Heading mt={20} style={{ fontWeight: "bold", textAlign: 'center' }}>{"Otp Verification"}</Heading>
                     <View mt={10} >
                         <OTPTextInput containerStyle={styles.otpContainer} textInputStyle={styles.otpTextInput} handleTextChange={handleOTPChange} inputCount={5} />
-                        <Button bg={"black"} mt={10} onPress={() => handleVerify()}><Text style={{ fontWeight: "bold", color: "white" }}>Verify</Text></Button>
+                        <Button bg={"black"} mt={10} onPress={() => handleVerify()}><Text style={{ fontWeight: "bold", color: "white" }}>{"Verify"}</Text></Button>
                     </View>
                 </VStack>
             </Box>

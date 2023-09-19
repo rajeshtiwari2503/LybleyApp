@@ -14,8 +14,6 @@ import Plan from "./src/Screens/Plan";
 import CreateComplaints from "./src/Screens/CreateComplaints";
 import { UserDashboard } from "./src/Screens/UserDashboard";
 import { TechnicianDashboard } from "./src/Screens/TechnicianDashboard";
-import { AppRegistry } from 'react-native';
-import { name as appName } from './app.json';
  
 
 const Stack=createStackNavigator();

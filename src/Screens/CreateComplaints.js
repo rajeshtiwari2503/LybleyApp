@@ -2,7 +2,6 @@
 import React, { useState } from 'react'
 import { Box, Text, VStack, Image, ScrollView, View, Heading, Input } from 'native-base'
 import { Button, StyleSheet } from 'react-native';
-import { launchImageLibrary } from 'react-native-image-picker';
 import { ImagePicker } from 'react-native-image-picker';
 import httpCommon from '../../http-common';
 import AsyncStorage from '@react-native-async-storage/async-storage';

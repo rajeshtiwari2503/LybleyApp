@@ -4,6 +4,7 @@ import { useRoute } from '@react-navigation/native';
 import { Box, Text, VStack, Image, ScrollView, View, Heading, Grid, Flex, Button } from 'native-base'
 import { StyleSheet } from 'react-native';
 import { CheckBox } from 'react-native-elements';
+import Logo from './Logo';
 
 const Subscription = () => {
   const [plan, setPlan] = useState([]);
@@ -24,16 +25,13 @@ const Subscription = () => {
     }
   }
 
-  console.log(plan);
-
-  const url = "https://media.licdn.com/dms/image/C4E0BAQEWmLbx4LlRHA/company-logo_200_200/0/1596941842942?e=2147483647&v=beta&t=U8ts_81bWWo_G5-jzlYTrhMqnwJUJv6vrBPi2LKAWqI"
- 
+  
   return (
     <ScrollView flex={1} bg={"amber.100"}>
       <Box flexWrap={"wrap"} >
         <Box w="full" h="full" px="6" justifyContent="center"  >
           <VStack space={2}  >
-          <View style={styles.container}> <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" /></View>
+            <Logo />
            {plan?.map((item,i)=>
            <View key={i}>
             <View mt={5}>
