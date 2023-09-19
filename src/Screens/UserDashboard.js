@@ -57,7 +57,7 @@ export const UserDashboard = () => {
                         <Box mt={5} style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
                              <Heading textAlign={"center"}> Dasboard</Heading> 
                             <View >
-                                <Button w="100%" rounded="10" bg="black" onPress={handleLogout} ><Text> Logout</Text></Button>
+                            <Button w="30%" rounded="10" bg="black" onPress={handleLogout} >Logout</Button>
                             </View>
                         </Box>
                         <View mt={5}>
