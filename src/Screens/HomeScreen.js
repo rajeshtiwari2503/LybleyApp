@@ -25,17 +25,17 @@ export const HomeScreen = () => {
         dataPromise.then((data) => {
             if (data !== null) {
               const user = data;
-             if(user.role==="USER"){
+             if(user?.role==="USER"){
                 navigation.navigate("User")
              }
-             if(user.role==="TECHNICIAN"){
+             else if(user?.role==="TECHNICIAN"){
                 navigation.navigate("Technician")
             } else {
                 navigation.navigate("Login")
             }
           }});
       },[]);
-    
+   
     return (
         <View>
          {(data?.role ) ? " " : <LoginScreen />}   
