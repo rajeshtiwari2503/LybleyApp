@@ -30,7 +30,7 @@ export default function App() {
         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{headerShown: false,}}/>
         <Stack.Screen name="Plans" component={Plans} options={{headerShown: false,}}/>
         <Stack.Screen name="Subscription" component={Subscription} options={{headerShown: false,}}/>
-        <Stack.Screen name="CreateComplaint" component={CreateComplaints} options={{headerShown: false,}}/>
+        <Stack.Screen name="CreateComplaints" component={CreateComplaints} options={{headerShown: false,}}/>
         <Stack.Screen name="Complaint" component={Complaint} options={{headerShown: false,}}/>
         <Stack.Screen name="Plan" component={Plan} options={{headerShown: false,}}/>
         <Stack.Screen name="User" component={UserDashboard} options={{headerShown: false,}}/>
