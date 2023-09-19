@@ -56,7 +56,7 @@ const TechnicianRegistration = () => {
                       <Input type='text' variant="outline" w="100%" pl={2} name='betterBusinessBureauReviewPage' value={formData.betterBusinessBureauReviewPage}  placeholder="Yelp or Better Business Bureau Review Page (Optional)" onChangeText={(text)=>handleChange("betterBusinessBureauReviewPage",text)}/>
                       <View pb={10}>
                         {/* <Button  mt={5} w="100%" rounded="50" bg="black" >Login</Button> */}
-                      <Button my={10} w="100%" rounded="10" bg="black" onPress={registration}>SIGN UP</Button>
+                      <Button my={10} w="100%" rounded="10" bg="black" onPress={registration}><Text>SIGN UP</Text></Button>
                       </View>
                      
                 </VStack>

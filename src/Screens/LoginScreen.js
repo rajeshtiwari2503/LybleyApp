@@ -46,14 +46,14 @@ const LoginScreen = () => {
 
                 <VStack space={2}  >
                    <View style={styles.container}> <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" /></View>
-                    <Heading mt={10} style={{ fontWeight: "bold", textAlign: 'center' }}>LOGIN</Heading>
+                    <Heading mt={10} style={{ fontWeight: "bold", textAlign: 'center' }}> LOGIN</Heading>
                     <Input mt={10} variant="outline" w="100%" pl={2} value={numberInput}
                         onChangeText={handleInputChange} placeholder='Enter Mobile No.' />
                     {/* <Input type='password' InputLeftElement={<Ionicons name="eye" size={20} color="black" />} variant="outline" w="100%" pl={2}   placeholder='************' /> */}
                     <Text>{validationResult}</Text>
 
-                    <View ><Button w="100%" rounded="10" bg="black" onPress={handleValidation} >Login</Button>
-                        <Button my={10} w="100%" rounded="10" bg="black" onPress={() => navigation.navigate("Signup")}>SIGN UP</Button>
+                    <View ><Button w="100%" rounded="10" bg="black" onPress={handleValidation} ><Text> Login</Text></Button>
+                        <Button my={10} w="100%" rounded="10" bg="black" onPress={() => navigation.navigate("Signup")}><Text>SIGN UP</Text></Button>
                     </View>
 
                 </VStack>

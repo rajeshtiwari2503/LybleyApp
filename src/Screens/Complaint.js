@@ -33,7 +33,7 @@ const Complaint = () => {
           <VStack space={2}  >
           <View style={styles.container}> <Image mt={10} style={styles.roundedImage} source={{ uri: url }} alt="image" /></View>
             <View mt={5}>
-              <Heading textAlign={"center"}>  Complaints  </Heading>
+              <Heading textAlign={"center"}>  Complaints </Heading>
             </View>
             
             <Flex mt={5} direction='row' flexWrap={"wrap"} alignItems="center" justifyContent="start">

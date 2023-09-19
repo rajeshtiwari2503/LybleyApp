@@ -42,7 +42,6 @@ export const HomeScreen = () => {
         <View>
          {(data?.role ) ? " " : <LoginScreen />}   
         {/* "<LoginScreen />" */}
-
         </View>
     )
 }

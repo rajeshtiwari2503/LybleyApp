@@ -94,7 +94,7 @@ const CreateComplaints = () => {
           <VStack space={2}  >
             <Image mt={20} style={styles.roundedImage} source={{ uri: url }} alt="image" />
             <View mt={5}>
-              <Heading textAlign={"center"}> Create Complaint </Heading>
+              <Heading textAlign={"center"}> Create Complaint</Heading>
 
             </View>
             <Box flexWrap={"wrap"} bg={"white"} >
@@ -110,10 +110,10 @@ const CreateComplaints = () => {
                   <Text style={{ fontWeight: "bold" }}>PART IMAGE</Text>
                   <Input variant="outline" w="100%" pl={2} name='servicerName' value={formData.description} placeholder='Part Image' onChangeText={(text) => handleChange("description", text)} />
 
-                  <View>
+                  {/* <View>
                     {imageSource && <Image source={imageSource} style={{ width: 200, height: 200 }} />}
                     <Button title="Select Image" onPress={selectImage} />
-                  </View>
+                  </View> */}
                   <View pb={10}>
                     {/* <Button  mt={5} w="100%" rounded="50" bg="black" >Login</Button> */}
                     <Button my={10} w="100%" title="Create Complaint" rounded="10" bg="black" onPress={complaint} />

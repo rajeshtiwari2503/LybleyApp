@@ -38,7 +38,7 @@ const Plan = () => {
               <Heading textAlign={"center"}>   Price {plan?.price}/sqft</Heading>
             </View>
             <View mt={5}>
-            <Heading textAlign={"start"}>  Cover Appliances</Heading>
+            <Heading textAlign={"start"}>  Cover Appliances </Heading>
             </View>
             <Flex mt={5} direction='row' flexWrap={"wrap"} alignItems="center" justifyContent="start">
               <Flex p={2} mt={5}  >
@@ -57,7 +57,7 @@ const Plan = () => {
               </Flex>
             </Flex>
             <View mt={5}>
-            <Heading textAlign={"start"}>  Cover Plus</Heading>
+            <Heading textAlign={"start"}>  Cover Plus </Heading>
             </View>
             <Flex mt={5} direction='row' flexWrap={"wrap"} alignItems="center" justifyContent="start">
               <Flex p={2} mt={5}  >
@@ -73,7 +73,7 @@ const Plan = () => {
                     </View>
                   </Box>
                 )}
-                 <Button mt={5} mb={5}>Upgrade Plan</Button>
+                 <Button mt={5} mb={5}><Text>Upgrade Plan</Text></Button>
               </Flex>
             </Flex>
           </VStack>
