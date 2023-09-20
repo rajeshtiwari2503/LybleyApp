@@ -58,7 +58,7 @@ const CreateComplaints = () => {
       try {
         const value = await AsyncStorage.getItem("logData");
         const loginData = JSON.parse(value);
-        let response = await httpCommon.post("/createComplaint", { ...formData, userId: loginData?._id });
+        let response = await httpCommon.post("/createComplaint", { ...formData, userId: loginData?._id,user:loginData });
         let { data } = response;
         // navigation.navigate("Login");
       } catch (err) {
