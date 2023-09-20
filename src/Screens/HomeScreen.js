@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { View } from 'native-base'
+import { Box, View } from 'native-base'
 import LoginScreen from './LoginScreen'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/native'
@@ -37,10 +37,11 @@ export const HomeScreen = () => {
       },[]);
    
     return (
-        <View>
-         {(data?.role ) ? " " : <LoginScreen />}   
+        <Box>
+         {(data?.role ) ? " " :  <LoginScreen /> 
+         }   
         {/* "<LoginScreen />" */}
-        </View>
+        </Box>
     )
 }
 
