@@ -1,5 +1,5 @@
 import "react-native-gesture-handler"
-import React from 'react';
+import React  from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NativeBaseProvider } from 'native-base';
@@ -23,7 +23,7 @@ export default function App() {
   return (
     <NativeBaseProvider>
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="HomeScreen">
+      <Stack.Navigator initialRouteName="Technician">
         <Stack.Screen name="Login" component={LoginScreen} options={{headerShown: false,}}/>
         <Stack.Screen name="Signup" component={TechnicianRegistration} options={{headerShown: false,}}/>
         <Stack.Screen name="OtpVerification" component={OtpVerification} options={{headerShown: false,}}/>
