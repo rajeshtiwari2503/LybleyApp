@@ -8,6 +8,9 @@ import Logo from './Logo';
 export const TechnicianDashboard = () => {
     const navigation=useNavigation();
     const [data, setData] = useState({});
+    const [allComplaints, setAllComplaints] = useState([]);
+    const [asignComplaints, setAsignComplaints] = useState([]);
+    const [pendindComplaints, setPendingComplaints] = useState([]);
 
     const getItemSync = async (key) => {
         try {
@@ -21,6 +24,34 @@ export const TechnicianDashboard = () => {
         }
     };
 
+    const getComplaints = async () => {
+        try {
+          let response = await httpCommon.get(`/getComplaintByUser/${id}`);
+          let { data } = response;
+          setAllComplaints(data);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+
+      const getAsignComplaints = async () => {
+        try {
+          let response = await httpCommon.get(`/getAssinedComplaintByTechnicians/${id}`);
+          let { data } = response;
+          setAsignComplaints(data);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+      const getPendingComplaints = async () => {
+        try {
+          let response = await httpCommon.get(`/getComplaintByUser/${id}`);
+          let { data } = response;
+          setPendingComplaints(data);
+        } catch (err) {
+          console.log(err);
+        }
+      }
     useEffect(() => {
         const dataPromise = getItemSync("logData");
         dataPromise.then((data) => {
@@ -31,9 +62,9 @@ export const TechnicianDashboard = () => {
     }, []);
     const id = data?._id
     const handleLink = (data) => {
-        data === "CreateComplaints" ? navigation.navigate("CreateComplaints")
-            : data === "Plans" ? navigation.navigate("Plans")
-                : data === "SubscribePlan" ? navigation.navigate("Subscription")
+        data === "PendingComplaints" ? navigation.navigate("PendingComplaints")
+            : data === "AsignComplaints" ? navigation.navigate("AsignComplaints")
+                : data === "CompletedComplaints" ? navigation.navigate("CompletedComplaints")
                     : data === "Complaints" ? navigation.navigate("Complaint", { id })
                         : console.log("No Router")
     }
@@ -89,36 +120,36 @@ export const TechnicianDashboard = () => {
 
                             <Flex p={2} mt={5} alignItems="center" w={`${100 / 2}%`} justifyContent="center">
                                 <Box style={styles.divSIze}>
-                                    <TouchableOpacity onPress={() => handleLink("Plans")}>
+                                    <TouchableOpacity onPress={() => handleLink("PendingComplaints")}>
                                         <Text fontWeight={"bold"}></Text>
                                         <Text fontWeight={"bold"}></Text>
                                         <Text fontWeight={"bold"} >Pending Complaints</Text>
                                         <Text fontWeight={"bold"}></Text>
-                                        <Text fontWeight={"bold"}></Text>
+                                        <Text fontWeight={"bold"}>{pendindComplaints?.length}</Text>
                                         <Text fontWeight={"bold"}></Text>
                                     </TouchableOpacity>
                                 </Box>
                             </Flex>
                             <Flex p={2} mt={5} alignItems="center" w={`${100 / 2}%`} justifyContent="center">
                                 <Box style={styles.divSIze}>
-                                    <TouchableOpacity onPress={() => handleLink("SubscribePlan")}>
+                                    <TouchableOpacity onPress={() => handleLink("CompletedComplaints")}>
                                         <Text fontWeight={"bold"}></Text>
                                         <Text fontWeight={"bold"}></Text>
                                         <Text fontWeight={"bold"} >Completed Complaints</Text>
                                         <Text fontWeight={"bold"}></Text>
-                                        <Text fontWeight={"bold"}></Text>
+                                        <Text fontWeight={"bold"}>{allComplaints?.length}</Text>
                                         <Text fontWeight={"bold"}></Text>
                                     </TouchableOpacity>
                                 </Box>
                             </Flex>
                             <Flex p={2} mt={5} alignItems="center" w={`${100 / 2}%`} justifyContent="center">
                                 <Box style={styles.divSIze}>
-                                    <TouchableOpacity onPress={() => handleLink("Complaints")}>
+                                    <TouchableOpacity onPress={() => handleLink("AsignComplaints")}>
                                         <Text fontWeight={"bold"}></Text>
                                         <Text fontWeight={"bold"}></Text>
-                                        <Text fontWeight={"bold"} > All Complaints</Text>
+                                        <Text fontWeight={"bold"} > Asign Complaints</Text>
                                         <Text fontWeight={"bold"}></Text>
-                                        <Text fontWeight={"bold"}></Text>
+                                        <Text fontWeight={"bold"}>{allComplaints?.length}</Text>
                                         <Text fontWeight={"bold"}>&nbsp;</Text>
                                     </TouchableOpacity>
                                 </Box>
