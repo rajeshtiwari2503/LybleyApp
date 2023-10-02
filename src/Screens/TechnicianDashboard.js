@@ -1,66 +1,188 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box,Button, Text,VStack,Image, ScrollView, View, Heading,Grid,Flex } from 'native-base'
-import { StyleSheet } from 'react-native'
+import { StyleSheet,TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Logo from './Logo';
 
 export const TechnicianDashboard = () => {
     const navigation=useNavigation();
+    const [data, setData] = useState({});
+    const [allComplaints, setAllComplaints] = useState([]);
+    const [asignComplaints, setAsignComplaints] = useState([]);
+    const [pendindComplaints, setPendingComplaints] = useState([]);
+
+    const getItemSync = async (key) => {
+        try {
+            const value = await AsyncStorage.getItem(key);
+            const loginData = JSON.parse(value);
+            setData(loginData);
+            return loginData;
+        } catch (error) {
+            console.error('Error retrieving data:', error);
+            return null;
+        }
+    };
+
+    const getComplaints = async () => {
+        try {
+          let response = await httpCommon.get(`/getComplaintByUser/${id}`);
+          let { data } = response;
+          setAllComplaints(data);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+
+      const getAsignComplaints = async () => {
+        try {
+          let response = await httpCommon.get(`/getAssinedComplaintByTechnicians/${id}`);
+          let { data } = response;
+          setAsignComplaints(data);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+      const getPendingComplaints = async () => {
+        try {
+          let response = await httpCommon.get(`/getComplaintByUser/${id}`);
+          let { data } = response;
+          setPendingComplaints(data);
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    useEffect(() => {
+        const dataPromise = getItemSync("logData");
+        dataPromise.then((data) => {
+            if (data !== null) {
+                const user = data;
+            }
+        });
+    }, []);
+    const id = data?._id
+    const handleLink = (data) => {
+        data === "PendingComplaints" ? navigation.navigate("PendingComplaints")
+            : data === "AsignComplaints" ? navigation.navigate("AsignComplaints")
+                : data === "CompletedComplaints" ? navigation.navigate("CompletedComplaints")
+                    : data === "Complaints" ? navigation.navigate("Complaint", { id })
+                        : console.log("No Router")
+    }
     const handleLogout = async () => {
         try {
-          await AsyncStorage.removeItem("logData");
-          navigation.navigate("HomeScreen")
+            await AsyncStorage.removeItem("logData");
+            navigation.navigate("HomeScreen")
         } catch (error) {
-          console.error('Error removing data:', error);
+            console.error('Error removing data:', error);
         }
-      };
+    };
     return (
         <ScrollView flex={1} bg={"amber.100"}>
-        <Box flexWrap={"wrap"} >
-            <Box w="full" h="full" px="6" justifyContent="center"  >
-                <VStack mt={5} space={2}  >
-                    <Logo />
-                    <View   style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}> 
-                     <Heading textAlign={"center"}> Dasboard </Heading>
-                      <Button w="30%" rounded="10" bg="black" onPress={handleLogout} >Logout</Button>
-                        
-                    </View> 
-                    <Flex mt={5} direction='row' flexWrap={"wrap"} alignItems="center" justifyContent="center">
-                    {[1,2,3,4,5,6,7,8,9].map((m1,i)=>
-                    
-                    <Flex  key={i}  p={2} mt={5} alignItems="center" w={`${100 / 2}%`} justifyContent="center">
-                    <Box style={styles.divSIze}>
-                    <Text fontWeight={"bold"}></Text>
-                    <Text fontWeight={"bold"} >Customer</Text>
-                    <Text fontWeight={"bold"}>{m1}</Text>
-                    <Text fontWeight={"bold"}></Text>
-                    </Box>
-                    </Flex>
-                    
-                    )}
-                    </Flex>
-                </VStack>
+            <Box flexWrap={"wrap"} >
+                <Box w="full" h="full" px="6" justifyContent="center"  >
+                    <VStack space={2}  >
+                        <Logo />
+                        <Box mt={5} style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
+                             <Heading textAlign={"center"}> Dasboard</Heading> 
+                            <View >
+                            <Button w="30%" rounded="10" bg="black" onPress={handleLogout} >Logout</Button>
+                            </View>
+                        </Box>
+                        <View mt={5}>
+                            <Heading >  {"Name :"} {data?.name}</Heading>
+                        </View>
+                        <View >
+                            <Heading >  {"Email :"} {data?.email}</Heading>
+                        </View>
+                        <View >
+                            <Heading >  {"Contact :"} {data?.contact}</Heading>
+                        </View>
+                        <View >
+                            <Heading >  {"Joining Date :"} {new Date(data?.createdAt).toLocaleDateString()}</Heading>
+                        </View>
+                        <Flex mt={5} direction='row' flexWrap={"wrap"} alignItems="center" justifyContent="center">
+                            <Flex p={2} mt={5} alignItems="center" w={`${100 / 2}%`} justifyContent="center">
+                                <Box style={styles.divSIze}>
+                                    <TouchableOpacity onPress={() => handleLink("CreateComplaints")}>
+                                        <Text fontWeight={"bold"}></Text>
+                                        <Text fontWeight={"bold"}></Text>
+                                        <View style={{ flex: 1, flexDirection: "row", justifyContent: "center", alignItems: "center" }}>
+                                            {/* <Ionicons name="add" size={50} style={{ fontWeight: "bold" }} color="black" /> */}
+                                            <Text fontWeight={"bold"} >Revenue</Text>
+                                        </View>
+                                        <Text fontWeight={"bold"}></Text>
+                                        <Text fontWeight={"bold"}></Text>
+                                        <Text fontWeight={"bold"}></Text>
+
+                                    </TouchableOpacity>
+                                </Box>
+                            </Flex>
+
+                            <Flex p={2} mt={5} alignItems="center" w={`${100 / 2}%`} justifyContent="center">
+                                <Box style={styles.divSIze}>
+                                    <TouchableOpacity onPress={() => handleLink("PendingComplaints")}>
+                                        <Text fontWeight={"bold"}></Text>
+                                        <Text fontWeight={"bold"}></Text>
+                                        <Text fontWeight={"bold"} >Pending Complaints</Text>
+                                        <Text fontWeight={"bold"}></Text>
+                                        <Text fontWeight={"bold"}>{pendindComplaints?.length}</Text>
+                                        <Text fontWeight={"bold"}></Text>
+                                    </TouchableOpacity>
+                                </Box>
+                            </Flex>
+                            <Flex p={2} mt={5} alignItems="center" w={`${100 / 2}%`} justifyContent="center">
+                                <Box style={styles.divSIze}>
+                                    <TouchableOpacity onPress={() => handleLink("CompletedComplaints")}>
+                                        <Text fontWeight={"bold"}></Text>
+                                        <Text fontWeight={"bold"}></Text>
+                                        <Text fontWeight={"bold"} >Completed Complaints</Text>
+                                        <Text fontWeight={"bold"}></Text>
+                                        <Text fontWeight={"bold"}>{allComplaints?.length}</Text>
+                                        <Text fontWeight={"bold"}></Text>
+                                    </TouchableOpacity>
+                                </Box>
+                            </Flex>
+                            <Flex p={2} mt={5} alignItems="center" w={`${100 / 2}%`} justifyContent="center">
+                                <Box style={styles.divSIze}>
+                                    <TouchableOpacity onPress={() => handleLink("AsignComplaints")}>
+                                        <Text fontWeight={"bold"}></Text>
+                                        <Text fontWeight={"bold"}></Text>
+                                        <Text fontWeight={"bold"} > Asign Complaints</Text>
+                                        <Text fontWeight={"bold"}></Text>
+                                        <Text fontWeight={"bold"}>{allComplaints?.length}</Text>
+                                        <Text fontWeight={"bold"}>&nbsp;</Text>
+                                    </TouchableOpacity>
+                                </Box>
+                            </Flex>
+
+                        </Flex>
+                    </VStack>
+                </Box>
             </Box>
-        </Box>
         </ScrollView>
     )
 }
 const styles = StyleSheet.create({
+    
+    divSIze: {
+        backgroundColor: "#f5881f",
+        // backgroundColor: "#f5881f",
+        height: "100px",
+        width: " 100%",
+        borderRadius: 5,
+        color:"black",
+        alignItems: "center",
+        margin:"10px",
+        justifyContent: "center",
+
+        // marginTop:"20px",
+    }
+ ,
     container: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
     },
     
-    divSIze:{
-        backgroundColor:"white",
-        height:"100px",
-        width:" 100%",
-        borderRadius:5,
-        alignItems:"center",
-        justifyContent:"center",
-        
-        // marginTop:"20px",
-    } 
+    
 });
